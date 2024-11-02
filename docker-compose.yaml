@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  bitbucket:
+    image: atlassian/bitbucket:8.9.20
+    ports:
+      - "7990:7990" # HTTP port
+      - "7999:7999" # SSH port
+    volumes:
+      - appdata:/var/atlassian/application-data/bitbucket
+    restart: unless-stopped
+
+volumes:
+  appdata:
